@@ -1,0 +1,43 @@
+//Author: Michael Fu
+//date:
+//description: this program creates a max heap that can input from both files and the command line
+
+#include <iostream>
+#include <cstring>
+#include <fstream>
+
+using namespace std;
+
+
+void printTree(int* heap, int index, int depth, int size);
+int main(){
+  int* heap = new int[100];
+  char inpt[15];
+
+  for(int i = 0;i<100;i++){
+    heap[i] = i;
+  }
+
+ 
+}
+
+
+
+
+void printTree(int* heap, int index, int depth){
+  //Go through the right
+  if(index*2+1 <= 100 && heap[index*2+1] != 0){
+    printTree(heap, index*2+1, depth+1);
+  }
+
+  //Print with right amount of tabs
+  for(int i = 0; i<depth; i++){
+    cout << "\t";
+  }
+  cout << heap[index] << endl;
+
+  //Go through the left
+  if(index*2 <= 100 && heap[index*2] != 0){
+    printTree(heap, index*2, depth+1);
+  }
+}
